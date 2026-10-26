@@ -2,12 +2,13 @@
 <resources>
     <string name="app_name">Quote Vomit</string>
     <string name="widget_name">Quote Vomit</string>
-    <string name="widget_description">Random quotes from history, every hour. Tap to reroll.</string>
-    <string name="tagline">Random quotes from all of history. Not inspirational. On purpose.</string>
-    <string name="button_vomit">Vomit me a quote</string>
+    <string name="widget_description">Loading-screen tips, quotes and useless facts, every hour. Tap to reroll.</string>
+    <string name="tagline">Your life, but with loading-screen tips. Random quotes, useless facts, trivia and terrible advice.</string>
+    <string name="button_vomit">Vomit me something</string>
     <string name="loading">Rummaging through history…</string>
     <string name="placeholder_quote">“What, you egg! Young fry of treachery!”</string>
     <string name="placeholder_author">— William Shakespeare, Macbeth</string>
     <string name="footer">tap to reroll</string>
-    <string name="how_to">To add the widget: long-press an empty spot on your home screen, tap Widgets, find Quote Vomit, and drag it onto your screen.\n\nIt pulls a new random quote from Wikiquote every hour. Tap the widget any time to reroll. If you\'re offline, it uses a built-in stash of old classics instead.</string>
+    <string name="placeholder_label">QUOTE</string>
+    <string name="how_to">To add the widget: long-press an empty spot on your home screen, tap Widgets, find Quote Vomit, and drag it onto your screen.\n\nEvery hour it rolls something new: a quote from anywhere in history, a useless fact, random Wikipedia trivia, or a fake game tip. Tap the widget to reroll. Offline, it uses its built-in tips and quotes.</string>
 </resources>

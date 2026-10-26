@@ -1,14 +1,13 @@
 # Quote Vomit
 
-An Android home-screen widget that shows a random quote from history every hour.
-Not inspirational. On purpose.
+An Android home-screen widget that works like a game loading screen: every hour it shows
+a random quote, useless fact, bit of Wikipedia trivia, or fake game tip, on a pretty, unrelated photo.
 
 ## What it does
-- Grabs a random page from **Wikiquote** every hour and picks a random quote from it
+- Every hour it rolls a random card: a **Wikiquote** quote, a **useless fact**, **Wikipedia** "did you know" trivia, a fake **loading-screen tip**, or a rude old quote
 - Each quote gets a random **pretty, totally unrelated photo** behind it (from Lorem Picsum), or a pastel gradient when offline
-- About 1 in 3 quotes comes from a built-in stash of rude, petty lines from history
 - **Tap the widget** to reroll instantly
-- Offline? Falls back to the stash ("What, you egg!")
+- Offline? Falls back to built-in tips and rude old quotes ("What, you egg!")
 - Keeps working after your phone restarts
 
 ## How to run it
@@ -27,13 +26,13 @@ Copy the `.apk` to your phone and open it to install.
 ## Files worth reading
 | File | What it does |
 |---|---|
-| `QuoteRepository.kt` | Fetches from Wikiquote, cleans the wiki markup, holds the backup stash |
+| `QuoteRepository.kt` | Rolls the random card: Wikiquote, useless facts, Wikipedia, tips, and the rude stash |
 | `BackgroundRepository.kt` | Downloads the pretty background photo, rounds its corners, picks offline gradients |
 | `QuoteWorker.kt` | The hourly background job (WorkManager) |
 | `QuoteWidget.kt` | The widget: draws the quote, handles taps |
 | `MainActivity.kt` | The app screen with a "Vomit me a quote" button |
 
 ## Ideas to extend it
-- Add your own favorites to the `stash` list in `QuoteRepository.kt`
+- Add your own lines to `tips` or `rudeStash` in `QuoteRepository.kt`, or change the odds in `roll()`
 - Change `1, TimeUnit.HOURS` in `QuoteWorker.kt` (Android won't go below 15 minutes)
 - Restrict quotes to a category, like only playwrights or only ancient philosophers

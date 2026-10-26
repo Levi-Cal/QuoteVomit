@@ -28,6 +28,16 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/quote_label"
+            style="@style/WidgetText"
+            android:layout_marginBottom="4dp"
+            android:letterSpacing="0.15"
+            android:text="@string/placeholder_label"
+            android:textColor="@color/label"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/quote_text"
             style="@style/WidgetText"
             android:ellipsize="end"

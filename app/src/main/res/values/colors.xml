@@ -9,4 +9,5 @@
     <!-- Widget text -->
     <color name="cream">#FFEBD3</color>
     <color name="soft_white">#CCFFFFFF</color>
+    <color name="label">#FFD8A8</color>
 </resources>

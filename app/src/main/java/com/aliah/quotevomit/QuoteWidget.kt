@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import android.widget.RemoteViews
 
 /** The home-screen widget itself. Tap it to get a new quote. */
@@ -37,6 +38,10 @@ class QuoteWidget : AppWidgetProvider() {
     companion object {
         const val ACTION_REROLL = "com.aliah.quotevomit.REROLL"
 
+        /** Quotes get quotation marks; tips and facts don't. */
+        fun displayText(q: Quote): String =
+            if (q.label == "QUOTE") "“${q.text}”" else q.text
+
         fun updateAll(context: Context) {
             val manager = AppWidgetManager.getInstance(context)
             val ids = manager.getAppWidgetIds(ComponentName(context, QuoteWidget::class.java))
@@ -46,12 +51,15 @@ class QuoteWidget : AppWidgetProvider() {
         private fun buildViews(context: Context): RemoteViews {
             val q = QuoteRepository.load(context)
             val views = RemoteViews(context.packageName, R.layout.widget_quote)
-            views.setTextViewText(R.id.quote_text, "“${q.text}”")
-            views.setTextViewText(R.id.quote_author, "— ${q.author}")
-            views.setTextViewText(
-                R.id.quote_footer,
-                if (q.fromWeb) "via Wikiquote · tap to reroll" else "from the stash · tap to reroll"
-            )
+            views.setTextViewText(R.id.quote_label, q.label)
+            views.setTextViewText(R.id.quote_text, displayText(q))
+            if (q.author.isBlank()) {
+                views.setViewVisibility(R.id.quote_author, View.GONE)
+            } else {
+                views.setViewVisibility(R.id.quote_author, View.VISIBLE)
+                views.setTextViewText(R.id.quote_author, "— ${q.author}")
+            }
+            views.setTextViewText(R.id.quote_footer, "${q.source} · tap to reroll")
 
             // Pretty, unrelated background: a photo if we have one, else a pastel gradient
             val photo = BackgroundRepository.loadPhoto(context)
