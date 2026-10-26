@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App screen -->
+    <color name="page">#141210</color>
+    <color name="ink">#F3EBDD</color>
+    <color name="accent">#F2A7B8</color>
+    <color name="muted">#9C9284</color>
+
+    <!-- Widget text -->
+    <color name="cream">#FFEBD3</color>
+    <color name="soft_white">#CCFFFFFF</color>
+</resources>
